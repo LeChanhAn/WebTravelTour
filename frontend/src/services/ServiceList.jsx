@@ -9,17 +9,17 @@ import customizationImg from "../assets/images/customization.png";
 const servicesData = [
   {
     imgUrl: weatherImg,
-    title: "Calculate Weather",
+    title: "Dự báo thời tiết",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
   {
     imgUrl: guideImg,
-    title: "Best Tour Guide",
+    title: "Hướng dẫn viên du lịch",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
   {
     imgUrl: customizationImg,
-    title: "Customization",
+    title: "Lựa chọn cá nhân",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
 ];

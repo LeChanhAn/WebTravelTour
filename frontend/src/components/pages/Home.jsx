@@ -20,12 +20,12 @@ const Home = () => {
             <Col lg="6">
               <div className="hero_content">
                 <div className="hero_subtitle d-flex align-items-center">
-                  <Subtitle subtitle={"Know Before You Go"} />
+                  <Subtitle subtitle={"Đi để Khám phá"} />
                   <img src={worldImg} alt="" />
                 </div>
                 <h1>
-                  Traveling opens the door to creating{" "}
-                  <span className="highlight">memories</span>
+                  Tạo nên những khoảnh khắc của riêng mình bằng{" "}
+                  <span className="highlight">những chuyến đi</span>
                 </h1>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -61,8 +61,10 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="3">
-              <h5 className="services_subtitle">What we serve</h5>
-              <h2 className="services_title">We offer our best services</h2>
+              <h5 className="services_subtitle">Dịch vụ của chúng tôi</h5>
+              <h2 className="services_title">
+                Chúng tôi luôn cung cấp dịch vụ tốt nhất
+              </h2>
             </Col>
             <ServiceList />
           </Row>
