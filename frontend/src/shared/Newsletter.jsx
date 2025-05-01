@@ -7,14 +7,14 @@ import maleTourist from "../assets/images/male-tourist.png";
 const Newsletter = () => {
   return (
     <section>
-      <Container>
+      <Container className="newsletter">
         <Row>
           <Col lg="6">
             <div className="newsletter_content">
               <h2>Subscribe now to get useful traveling information.</h2>
-              <div className="newsletter__input">
+              <div className="newsletter_input">
                 <input type="email" placeholder="Enter your email " />
-                <button className="btn newsletter__btn">Subscribe</button>
+                <button className="btn newsletter_btn">Subscribe</button>
               </div>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
