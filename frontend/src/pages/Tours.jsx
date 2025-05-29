@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import CommonSection from "../../shared/CommonSection";
-import "../../styles/tour.css";
-import tourData from "../../assets/data/tours";
-import TourCard from "../../shared/TourCard";
-import SearchBar from "../../shared/SearchBar";
-import Newsletter from "../../shared/Newsletter";
-import { Container } from "reactstrap";
-import { Row } from "reactstrap";
-import { Col } from "reactstrap";
+import CommonSection from "../shared/CommonSection";
+import "../styles/tour.css";
+import tourData from "../assets/data/tours";
+import TourCard from "../shared/TourCard";
+import SearchBar from "../shared/SearchBar";
+import Newsletter from "../shared/Newsletter";
+import { Container, Row, Col } from "reactstrap";
+
+import useFetch from "../hooks/useFetch";
+import { BASE_URL } from "../utils/config";
 
 const Tours = () => {
   const [pageCount, setPageCount] = useState(0);
