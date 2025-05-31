@@ -11,7 +11,7 @@ import { BASE_URL } from "../utils/config";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
-    userName: undefined,
+    username: undefined,
     email: undefined,
     password: undefined,
   });
@@ -29,11 +29,12 @@ const Register = () => {
     try {
       const res = await fetch(`${BASE_URL}/auth/register`, {
         method: "post",
-        header: {
+        headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(credentials),
       });
+
       const result = await res.json();
 
       if (!res.ok) alert(result.message);
@@ -88,7 +89,7 @@ const Register = () => {
                     />
                   </FormGroup>
                   <Button className="btn secondary_btn auth_btn" type="submit">
-                    Login
+                    Register
                   </Button>
                 </Form>
                 <p>
