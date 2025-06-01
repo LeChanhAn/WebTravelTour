@@ -11,16 +11,15 @@ const Newsletter = () => {
         <Row>
           <Col lg="6">
             <div className="newsletter_content">
-              <h2>Subscribe now to get useful traveling information.</h2>
+              <h2>Đăng ký ngay để nhận thông tin du lịch hữu ích.</h2>
               <div className="newsletter_input">
                 <input type="email" placeholder="Enter your email " />
                 <button className="btn newsletter_btn">Subscribe</button>
               </div>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Assumenda, ipsum. Est soluta autem ipsum minus, cum accusantium
-                saepe voluptatem obcaecati, enim hic laboriosam? Optio, repellat
-                doloremque. Unde, earum. Consequuntur, quam?
+                Bằng cách đăng ký, bạn sẽ nhận được thông tin cập nhật về các
+                tour du lịch mới nhất, ưu đãi độc quyền và những bí quyết du
+                lịch hữu ích để biến mỗi chuyến đi thành một kỷ niệm đáng nhớ.
               </p>
             </div>
           </Col>

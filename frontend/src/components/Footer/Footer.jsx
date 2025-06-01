@@ -45,8 +45,8 @@ const Footer = () => {
             <div className="logo">
               <img src={logo} alt="" />
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Commodi, enim.
+                Cảm ơn bạn đã ghé thăm trang web. Đây là một số thông tin liên
+                lạc với chúng tôi.
               </p>
             </div>
 
@@ -104,7 +104,7 @@ const Footer = () => {
                     Address:
                   </span>
                 </h6>
-                <p className="mb-0">Sylhet, Bangladesh</p>
+                <p className="mb-0">Thu Duc, TP. Ho Chi Minh</p>
               </ListGroupItem>
 
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
@@ -130,8 +130,8 @@ const Footer = () => {
           </Col>
           <Col lg="12" className="text-center pt-5">
             <p className="copyright">
-              Copyright {year}, design aand develop by Muhubur Rahmaan. All
-              rights reserved.
+              Sản Xuất vào {year}, được thiết kế và phát triển bởi nhóm 12. Xin
+              chân thành cảm ơn.
             </p>
           </Col>
         </Row>

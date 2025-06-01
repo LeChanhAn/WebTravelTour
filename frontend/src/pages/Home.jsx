@@ -10,7 +10,7 @@ import experienceImg from "../assets/images/experience.png";
 
 import SearchBar from "../shared/SearchBar";
 import ServiceList from "../services/ServiceList";
-import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
+import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
@@ -96,12 +96,14 @@ const Home = () => {
               <div className="experience_content">
                 <Subtitle subtitle={"Experience"} />
                 <h2>
-                  With our all experience <br /> we will serve you
+                  Bằng kinh nghiệm của tôi đang có <br /> Chúng tôi sẽ mang đến
+                  cho bạn những chuyến đi tuyệt vời
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Chúng tôi đã có hơn 15 năm kinh nghiệm trong ngành du lịch.
                   <br />
-                  Quas aliquam, hic tempora inventore suscipit unde.
+                  Dưới đây là các thành tích của chúng tôi trong suốt thời gian
+                  qua.
                 </p>
               </div>
 
@@ -137,7 +139,7 @@ const Home = () => {
             <Col lg="12">
               <Subtitle subtitle={"Gallery"}></Subtitle>
               <h2 className="gallery_title">
-                Visit our customers tour gallery
+                Tham khảo những khoảnh khắc tuyệt vời
               </h2>
             </Col>
             <Col lg="12">
@@ -154,7 +156,9 @@ const Home = () => {
           <Row>
             <Col lg="12">
               <Subtitle subtitle={"Fans Love"} />
-              <h2 className="testimonial_title">What our fans say about us</h2>
+              <h2 className="testimonial_title">
+                Khách Hàng đã có những trải nghiệm
+              </h2>
             </Col>
             <Col lg="12">
               <Testimonials></Testimonials>
