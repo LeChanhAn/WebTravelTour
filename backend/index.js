@@ -13,6 +13,7 @@ import bookingRoute from "./routes/bookings.js";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
+
 const corsOptions = {
   origin: true,
   credentials: true,
@@ -31,10 +32,12 @@ const connect = async () => {
     console.error("MongoDB connection error");
   }
 };
-//middlewares
+
+// middlewares
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cookieParser());
+
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/tours", tourRoute);
 app.use("/api/v1/users", userRoute);
