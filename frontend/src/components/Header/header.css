@@ -3,8 +3,15 @@
   height: 80px;
   line-height: 80px;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 .logo img {
-  width: 30%;
+  height: 60px; /* Fixed height that fits well in 80px header */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure logo doesn't get distorted */
 }
 .menu {
   margin-bottom: 0;
@@ -13,7 +20,10 @@
   text-decoration: none;
   color: var(--heading-color);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.3s ease;
 }
 .nav_item a:hover {
   color: inherit;
@@ -40,10 +50,26 @@
   z-index: 999;
 }
 
+/* Responsive navigation adjustments */
+@media only screen and (max-width: 1200px) {
+  .nav_item a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .nav_item a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
 /* =========== make it responsive ========== */
 @media only screen and (max-width: 992px) {
   .logo img {
-    width: 20%;
+    height: 50px; /* Slightly smaller for tablets */
+    width: auto;
   }
 
   .navigation {
@@ -61,13 +87,30 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% - 75%);
+    width: calc(100% - 65%);
     height: 100%;
     background: #fff;
     flex-direction: column;
-    line-height: 0.5rem;
+    line-height: 2.5rem;
     justify-content: center;
     z-index: 9999;
+    padding: 2rem 1rem;
+  }
+
+  .nav_item {
+    margin: 0.5rem 0;
+  }
+
+  .nav_item a {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    display: block;
+  }
+
+  .nav_item a:hover {
+    background-color: var(--secondary-color);
+    color: white;
   }
 
   .show_menu {
@@ -81,7 +124,8 @@
 
 @media only screen and (max-width: 768px) {
   .logo img {
-    width: 45%;
+    height: 45px; /* Even smaller for mobile */
+    width: auto;
   }
 
   .menu {

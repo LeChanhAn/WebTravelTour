@@ -8,6 +8,8 @@ import Tours from "../pages/Tours";
 import TourDetail from "../pages/TourDetails";
 import SearchResultList from "../pages/SearchResultList";
 import ThankYou from "../pages/ThankYou";
+import MyBookings from "../pages/MyBookings";
+import AdminBookings from "../pages/AdminBookings";
 
 const Routers = () => {
   return (
@@ -23,6 +25,8 @@ const Routers = () => {
         path="/tours/search"
         element={<SearchResultList></SearchResultList>}
       ></Route>
+      <Route path="/my-bookings" element={<MyBookings />}></Route>
+      <Route path="/admin/bookings" element={<AdminBookings />}></Route>
     </Routes>
   );
 };

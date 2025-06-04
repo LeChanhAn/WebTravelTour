@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./booking.css";
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
 
@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
 
 const Booking = ({ tour, avgRating }) => {
-  const { price, reviews, title } = tour;
+  const { price, reviews, title, _id } = tour;
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
@@ -15,13 +15,23 @@ const Booking = ({ tour, avgRating }) => {
   const [booking, setBooking] = useState({
     userId: user && user._id,
     userEmail: user && user.email,
-    tourName: title,
+    tourId: _id, // Changed from tourName to tourId
     fullName: "",
     phone: "",
     guestSize: 1,
     bookAt: "",
+    totalPrice: 0, // Will be calculated
   });
 
+  // Update tourId when tour data changes
+  useEffect(() => {
+    if (_id) {
+      setBooking((prev) => ({
+        ...prev,
+        tourId: _id,
+      }));
+    }
+  }, [_id]);
   const handleChange = (e) => {
     setBooking((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -29,12 +39,17 @@ const Booking = ({ tour, avgRating }) => {
   const serviceFee = 10;
   const totalAmount =
     Number(price) * Number(booking.guestSize) + Number(serviceFee);
-
   // send data to the server
   const handleClick = async (e) => {
     e.preventDefault();
 
-    console.log(booking);
+    // Include totalPrice in the booking data
+    const bookingData = {
+      ...booking,
+      totalPrice: totalAmount,
+    };
+
+    console.log(bookingData);
 
     try {
       if (!user || user === undefined || user === null) {
@@ -47,7 +62,7 @@ const Booking = ({ tour, avgRating }) => {
           "content-type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify(booking),
+        body: JSON.stringify(bookingData),
       });
 
       const result = await res.json();
@@ -101,11 +116,13 @@ const Booking = ({ tour, avgRating }) => {
               id="bookAt"
               required
               onChange={handleChange}
-            />
+            />{" "}
             <input
               type="number"
               placeholder="Guest"
               id="guestSize"
+              min="1"
+              value={booking.guestSize}
               required
               onChange={handleChange}
             />
@@ -117,11 +134,13 @@ const Booking = ({ tour, avgRating }) => {
       {/* === booking bottom === */}
       <div className="booking_bottom">
         <ListGroup>
+          {" "}
           <ListGroupItem className="border-0 px-0">
             <h5 className="d-flex align-items-center gap-1">
-              ${price} <i className="ri-close-line"></i> 1 person
+              ${price} <i className="ri-close-line"></i> {booking.guestSize}{" "}
+              person{booking.guestSize > 1 ? "s" : ""}
             </h5>
-            <span>${price}</span>
+            <span>${price * booking.guestSize}</span>
           </ListGroupItem>
           <ListGroupItem className="border-0 px-0">
             <h5>Service charge</h5>
