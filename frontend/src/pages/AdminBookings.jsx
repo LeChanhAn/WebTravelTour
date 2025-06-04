@@ -145,7 +145,7 @@ const AdminBookings = () => {
 
   return (
     <>
-      <CommonSection title="All Bookings" />
+      <CommonSection title="Manage Bookings" />
       <section className="admin-bookings-section">
         <Container>
           <Row>
