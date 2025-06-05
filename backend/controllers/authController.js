@@ -48,9 +48,9 @@ export const login = async (req, res) => {
     if (!checkCorrectPassword) {
       return res
         .status(401)
-        .json({ success: false, message: "Wrong password or username" });
+        .json({ success: false, message: "Incorrect email or password" });
     }
-    const { password, role, ...rest } = user._doc;
+    const { password, ...rest } = user._doc;
 
     //create jwt token
     const token = jwt.sign(
@@ -69,7 +69,7 @@ export const login = async (req, res) => {
       .json({
         token,
         data: { ...rest },
-        role,
+        success: true,
       });
   } catch (err) {
     return res.status(500).json({ success: false, message: "Failed to login" });

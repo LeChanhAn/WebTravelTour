@@ -3,13 +3,15 @@ import mongoose from "mongoose";
 const bookingSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     userEmail: {
       type: String,
-    },
-    tourName: {
-      type: String,
+    },    tourId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Tour",
       required: true,
     },
     fullName: {
@@ -26,6 +28,10 @@ const bookingSchema = new mongoose.Schema(
     },
     bookAt: {
       type: Date,
+      required: true,
+    },
+    totalPrice: {
+      type: Number,
       required: true,
     },
   },

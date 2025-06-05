@@ -31,16 +31,17 @@ const Header = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
   };
-
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current.classList.add("sticky_header");
-      } else {
-        headerRef.current.classList.remove("sticky_header");
+      if (headerRef.current) {
+        if (
+          document.body.scrollTop > 80 ||
+          document.documentElement.scrollTop > 80
+        ) {
+          headerRef.current.classList.add("sticky_header");
+        } else {
+          headerRef.current.classList.remove("sticky_header");
+        }
       }
     });
   };
@@ -63,10 +64,10 @@ const Header = () => {
               <img src={logo} alt="" />
             </div>
             {/* ===== end logo ===== */}
-
             {/* === menu === */}
             <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-              <ul className="menu d-flex align-items-center gap-5">
+              <ul className="menu d-flex align-items-center gap-3">
+                {/* Reduced gap from 5 to 3 */}
                 {nav_links.map((item, index) => (
                   <li className="nav_item" key={index}>
                     <NavLink
@@ -78,11 +79,38 @@ const Header = () => {
                       {item.display}
                     </NavLink>
                   </li>
-                ))}
+                ))}{" "}
+                {/* Conditional booking links based on user role */}
+                {user && (
+                  <>
+                    {user.role === "admin" ? (
+                      <li className="nav_item">
+                        <NavLink
+                          to="/admin/bookings"
+                          className={(navClass) =>
+                            navClass.isActive ? "active_link" : ""
+                          }
+                        >
+                          Bookings
+                        </NavLink>
+                      </li>
+                    ) : (
+                      <li className="nav_item">
+                        <NavLink
+                          to="/my-bookings"
+                          className={(navClass) =>
+                            navClass.isActive ? "active_link" : ""
+                          }
+                        >
+                          My Bookings
+                        </NavLink>
+                      </li>
+                    )}
+                  </>
+                )}
               </ul>
             </div>
             {/* === menu end === */}
-
             <div className="nav_right d-flex align-items-center gap-4">
               <div className="nav_btns d-flex align-items-center gap-4">
                 {user ? (

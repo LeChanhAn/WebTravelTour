@@ -1,0 +1,129 @@
+/* My Bookings Page Styles */
+.my-bookings-section {
+  padding: 3rem 0;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.booking-header h2 {
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.booking-header p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.bookings-table-container {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookings-table {
+  margin-bottom: 0;
+}
+
+.bookings-table th {
+  background-color: var(--heading-color) !important;
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 1rem 0.75rem;
+}
+
+.bookings-table td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.bookings-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.tour-info strong {
+  color: var(--heading-color);
+  font-size: 1rem;
+}
+
+.guest-size-badge {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.total-price {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+.cancel-btn {
+  background-color: #dc3545 !important;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333 !important;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booking-header h2 {
+    font-size: 2rem;
+  }
+  
+  .bookings-table {
+    font-size: 0.85rem;
+  }
+  
+  .bookings-table th,
+  .bookings-table td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .tour-info strong {
+    font-size: 0.9rem;
+  }
+  
+  .cancel-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .my-bookings-section {
+    padding: 2rem 0;
+  }
+  
+  .booking-header {
+    margin-bottom: 2rem;
+  }
+  
+  .booking-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .bookings-table-container {
+    border-radius: 4px;
+  }
+}
