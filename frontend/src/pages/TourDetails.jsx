@@ -12,14 +12,14 @@ import { BASE_URL } from "../utils/config";
 import { AuthContext } from "../context/AuthContext";
 
 const TourDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const reviewMsgRef = useRef("");
   const [tourRating, setTourRating] = useState(null);
   const { user } = useContext(AuthContext);
 
   // fetch data from database
-  const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
+  const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/slug/${slug}`);
 
   // destructure properties from tour object
   const {
@@ -32,6 +32,7 @@ const TourDetails = () => {
     city,
     distance,
     maxGroupSize,
+    _id,
   } = tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
@@ -53,7 +54,7 @@ const TourDetails = () => {
         reviewText,
         rating: tourRating,
       };
-      const res = await fetch(`${BASE_URL}/review/${id}`, {
+      const res = await fetch(`${BASE_URL}/review/${_id}`, {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -74,7 +75,7 @@ const TourDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  },[slug]);
   return (
     <>
       <section>
