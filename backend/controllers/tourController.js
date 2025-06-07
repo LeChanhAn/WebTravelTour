@@ -161,3 +161,26 @@ export const getTourCount = async (req, res) => {
     res.status(500).json({ success: false, message: "failed to fetch" });
   }
 };
+
+export const getTourBySlug = async (req, res) => {
+  const slug = req.params.slug;
+  try {
+    const tour = await Tour.findOne({ slug }).populate("reviews");
+    if (!tour) {
+      return res.status(404).json({
+        success: false,
+        message: "Tour not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Successfully",
+      data: tour,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};

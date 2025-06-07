@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const tourSchema = new mongoose.Schema(
   {
@@ -6,6 +7,12 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
     },
     city: {
       type: String,
@@ -50,5 +57,11 @@ const tourSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+tourSchema.pre("validate", function (next) {
+  if (this.title) {
+    const base = slugify(this.title, { lower: true, strict: true });
+    this.slug = `travel-${base}`;
+  }
+  next();
+});
 export default mongoose.model("Tour", tourSchema);

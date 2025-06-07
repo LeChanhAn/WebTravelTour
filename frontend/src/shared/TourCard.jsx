@@ -2,13 +2,13 @@ import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
-
+import slugify from "slugify";
 import "./tour-card.css";
 
 const TourCard = ({ tour }) => {
   const { _id, title, city, photo, price, featured, reviews } = tour;
   const { totalRating, avgRating } = calculateAvgRating(reviews);
-
+  const slug = `travel-${slugify(title, { lower: true, strict: true })}`;
   return (
     <div className="tour_card">
       <Card>
@@ -32,7 +32,7 @@ const TourCard = ({ tour }) => {
             </span>
           </div>
           <h5 className="tour_title">
-            <Link to={`/tours/${_id}`}>{title}</Link>
+            <Link to={`/tours/${slug}`}>{title}</Link>
           </h5>
 
           <div className="card_bottom d-flex align-items-center justify-content-between mt-3">
@@ -40,7 +40,7 @@ const TourCard = ({ tour }) => {
               ${price} <span>/per person</span>
             </h5>
             <button className="btn booking_btn">
-              <Link to={`/tours/${_id}`}>Book Now</Link>
+              <Link to={`/tours/${slug}`}>Book Now</Link>
             </button>
           </div>
         </CardBody>

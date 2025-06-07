@@ -8,6 +8,7 @@ import {
   getTourBySearch,
   getFeaturedTour,
   getTourCount,
+  getTourBySlug,
 } from "../controllers/tourController.js";
 
 import { verifyAdmin } from "../utils/verifyToken.js";
@@ -20,6 +21,8 @@ router.post("/", verifyAdmin, createTour);
 router.put("/:id", verifyAdmin, updateTour);
 // delete tour
 router.delete("/:id", verifyAdmin, deleteTour);
+// get tour by slug
+router.get("/slug/:slug", getTourBySlug);
 // get single tour
 router.get("/:id", getSingleTour);
 // get all tours
