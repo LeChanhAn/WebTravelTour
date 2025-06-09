@@ -26,11 +26,9 @@ const SearchBar = () => {
     if (!res.ok) alert("Something went wrong");
 
     const result = await res.json();
+    console.log(result);
 
-    navigate(
-      `/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
-      { state: result.data }
-    );
+    navigate("/tours/search", { state: result.data });
   };
 
   return (
