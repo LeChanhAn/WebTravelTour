@@ -37,10 +37,9 @@ const Testimonials = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sit,
-          explicabo provident hic distinctio molestias voluptates nobis alias
-          placeat suscipit earum debitis recusandae voluptate illum expedita
-          corrupti aliquid doloribus delectus?
+          Chuyến đi thật tuyệt vời! Mọi thứ được tổ chức rất chuyên nghiệp,
+          hướng dẫn viên thân thiện và nhiệt tình. Tôi đã có những trải nghiệm
+          đáng nhớ và sẽ quay lại trong tương lai. Cảm ơn rất nhiều!
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava01} className="w-25 h-25 rounded-2" alt="" />
@@ -52,10 +51,9 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sit,
-          explicabo provident hic distinctio molestias voluptates nobis alias
-          placeat suscipit earum debitis recusandae voluptate illum expedita
-          corrupti aliquid doloribus delectus?
+          I am very satisfied with the service, reasonable schedule, beautiful
+          scenery and delicious food. Will continue to accompany the company on
+          future trips!
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava02} className="w-25 h-25 rounded-2" alt="" />
@@ -67,10 +65,10 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sit,
-          explicabo provident hic distinctio molestias voluptates nobis alias
-          placeat suscipit earum debitis recusandae voluptate illum expedita
-          corrupti aliquid doloribus delectus?
+          Đây là lần đầu tiên tôi đặt tour online và hoàn toàn hài lòng. Giá cả
+          hợp lý, chất lượng vượt mong đợi. Hướng dẫn viên rất chuyên nghiệp và
+          nhiệt tình. Tôi đã có những trải nghiệm tuyệt vời và sẽ giới thiệu với
+          bạn bè.
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava03} className="w-25 h-25 rounded-2" alt="" />
@@ -83,10 +81,9 @@ const Testimonials = () => {
 
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sit,
-          explicabo provident hic distinctio molestias voluptates nobis alias
-          placeat suscipit earum debitis recusandae voluptate illum expedita
-          corrupti aliquid doloribus delectus?
+          Chuyến đi thật tuyệt vời! Mọi thứ được tổ chức rất chuyên nghiệp,
+          hướng dẫn viên thân thiện và nhiệt tình. Tôi đã có những trải nghiệm
+          đáng nhớ và sẽ quay lại trong tương lai. Cảm ơn rất nhiều!
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava02} className="w-25 h-25 rounded-2" alt="" />
@@ -98,10 +95,10 @@ const Testimonials = () => {
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sit,
-          explicabo provident hic distinctio molestias voluptates nobis alias
-          placeat suscipit earum debitis recusandae voluptate illum expedita
-          corrupti aliquid doloribus delectus?
+          Đây là lần đầu tiên tôi đặt tour online và hoàn toàn hài lòng. Giá cả
+          hợp lý, chất lượng vượt mong đợi. Hướng dẫn viên rất chuyên nghiệp và
+          nhiệt tình. Tôi đã có những trải nghiệm tuyệt vời và sẽ giới thiệu với
+          bạn bè.
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava03} className="w-25 h-25 rounded-2" alt="" />

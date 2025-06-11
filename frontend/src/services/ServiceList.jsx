@@ -12,17 +12,17 @@ const servicesData = [
   {
     imgUrl: weatherImg,
     title: "Dự báo thời tiết",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    desc: "Cập nhật thông tin thời tiết mới nhất giúp bạn chuẩn bị tốt cho chuyến đi. Nhớ để ý nhé!",
   },
   {
     imgUrl: guideImg,
     title: "Hướng dẫn viên du lịch",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    desc: "Đội ngũ hướng dẫn viên chuyên nghiệp, nhiệt tình đồng hành cùng bạn trên mọi hành trình.",
   },
   {
     imgUrl: customizationImg,
     title: "Lựa chọn cá nhân",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    desc: "Dịch vụ linh hoạt, cho phép bạn tùy chỉnh lịch trình và trải nghiệm theo sở thích cá nhân.",
   },
 ];
 const ServiceList = () => {

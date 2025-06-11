@@ -33,10 +33,9 @@ const Home = () => {
                   <span className="highlight">những chuyến đi</span>
                 </h1>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Animi cum neque numquam sequi, earum quam soluta deleniti
-                  possimus eveniet sapiente ipsam similique corrupti ea quas
-                  incidunt quasi consequatur reiciendis itaque.
+                  Mỗi chuyến đi là cơ hội để ta khám phá thế giới và chính bản
+                  thân mình. Những trải nghiệm mới mẻ sẽ trở thành ký ức quý
+                  giá, làm giàu thêm tâm hồn và cuộc sống của ta.
                 </p>
               </div>
             </Col>
