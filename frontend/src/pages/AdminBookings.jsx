@@ -1,3 +1,4 @@
+// Trang quản lý booking dành cho admin
 import React, { useState, useEffect, useContext } from "react";
 import {
   Container,
@@ -29,7 +30,7 @@ const AdminBookings = () => {
     }
   }, [user]);
   useEffect(() => {
-    // Filter bookings based on search term
+    // Lọc các user bookings dựa trên searchTerm
     if (searchTerm) {
       const filtered = bookings.filter(
         (booking) =>
@@ -52,7 +53,7 @@ const AdminBookings = () => {
     }
   }, [searchTerm, bookings]);
 
-  // Admin protection - redirect if not admin
+  // Chuyển hướng người dùng nếu không phải là admin
   if (!user) {
     return <Navigate to="/login" replace />;
   }
@@ -84,6 +85,8 @@ const AdminBookings = () => {
     }
   };
 
+  // Xử lý xóa booking
+  // Thêm xác nhận trước khi xóa
   const handleDeleteBooking = async (bookingId) => {
     if (window.confirm("Are you sure you want to delete this booking?")) {
       try {
@@ -105,13 +108,14 @@ const AdminBookings = () => {
       }
     }
   };
+  // Xử lý thay đổi từ ô tìm kiếm
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Helper function to get tour name from booking
+  // Chức năng trợ giúp để lấy tên tour từ booking
   const getTourName = (booking) => {
-    // Get tour name from populated tourId
+    //Lấy tên tour từ tourId đã điền
     if (
       booking.tourId &&
       typeof booking.tourId === "object" &&
@@ -120,7 +124,7 @@ const AdminBookings = () => {
       return booking.tourId.title;
     }
 
-    // Fallback for unpopulated tourId
+    // Dự phòng cho tourId chưa có người ở
     if (booking.tourId && typeof booking.tourId === "string") {
       return `Tour ID: ${booking.tourId}`;
     }

@@ -4,6 +4,7 @@ import { Col, Form, FormGroup } from "reactstrap";
 import { BASE_URL } from "../utils/config";
 import { useNavigate } from "react-router-dom";
 
+// Phần thanh tìm kiếm để tìm kiếm tour du lịch theo vị trí, khoảng cách và số lượng người tối đa
 const SearchBar = () => {
   const locationRef = useRef("");
   const distanceRef = useRef(0);
@@ -18,7 +19,7 @@ const SearchBar = () => {
     if (location === "" || distance === "" || maxGroupSize === "") {
       return alert("All fields are required!");
     }
-
+    // dùng fetch để gửi yêu cầu đến API và lấy dữ liệu tour du lịch theo vị trí, khoảng cách và số lượng người tối đa
     const res = await fetch(
       `${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`
     );
@@ -27,10 +28,11 @@ const SearchBar = () => {
 
     const result = await res.json();
     console.log(result);
-
+    // Chuyển hướng đến trang kết quả tìm kiếm với dữ liệu tour du lịch
     navigate("/tours/search", { state: result.data });
   };
 
+  // Phần giao diện của thanh tìm kiếm
   return (
     <Col lg="12">
       <div className="search_bar">

@@ -9,7 +9,9 @@ import userIcon from "../assets/images/user.png";
 import { AuthContext } from "../context/AuthContext";
 import { BASE_URL } from "../utils/config";
 
+// Trang đăng ký tài khoản cho người dùng mới
 const Register = () => {
+  // State lưu thông tin username, email và password nhập vào
   const [credentials, setCredentials] = useState({
     username: undefined,
     email: undefined,
@@ -19,14 +21,17 @@ const Register = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Hàm xử lý khi người dùng thay đổi input username/email/password
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+  // Hàm xử lý khi người dùng nhấn nút đăng ký
   const handleClick = async (e) => {
     e.preventDefault();
 
     try {
+      // Gửi request đăng ký tới backend
       const res = await fetch(`${BASE_URL}/auth/register`, {
         method: "post",
         headers: {
@@ -39,9 +44,11 @@ const Register = () => {
 
       if (!res.ok) alert(result.message);
 
+      // Nếu đăng ký thành công, dispatch và chuyển hướng sang trang đăng nhập
       dispatch({ type: "REGISTER_SUCCESS" });
       navigate("/login");
     } catch (err) {
+      // Hiển thị thông báo lỗi nếu có lỗi
       alert(err.message);
     }
   };
@@ -60,6 +67,7 @@ const Register = () => {
                   <img src={userIcon} alt="" />
                 </div>
                 <h2>Register</h2>
+                {/* Form đăng ký */}
                 <Form onSubmit={handleClick}>
                   <FormGroup>
                     <input

@@ -7,6 +7,7 @@ import useFetch from "../../hooks/useFetch";
 import { BASE_URL } from "../../utils/config";
 
 const FeaturedTourList = () => {
+  // Lấy danh sách tour nổi bật từ backend
   const {
     data: featuredTours,
     loading,

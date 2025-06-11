@@ -1,6 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "./booking.css";
-import { Form, FormGroup, ListGroup, ListGroupItem, Button, Spinner } from "reactstrap";
+import {
+  Form,
+  FormGroup,
+  ListGroup,
+  ListGroupItem,
+  Button,
+  Spinner,
+} from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
@@ -8,8 +15,9 @@ import { BASE_URL } from "../../utils/config";
 const BANK_ID = "Vietcombank";
 const ACCOUNT_NO = "1029043839";
 const TEMPLATE = "compact2";
-const PAYMENT_CHECK_URL = "https://script.google.com/macros/s/AKfycbyIRdgoehgU5HSZCUX3mnCSt3JtP-RLBfaOaSv-385gqq5PNDEGYz3zQv_J2MjazmE5kQ/exec";
-const CONVERSION_RATE = 26000; // tỷ giá
+const PAYMENT_CHECK_URL =
+  "https://script.google.com/macros/s/AKfycbyIRdgoehgU5HSZCUX3mnCSt3JtP-RLBfaOaSv-385gqq5PNDEGYz3zQv_J2MjazmE5kQ/exec";
+const CONVERSION_RATE = 100; // tỷ giá
 
 const Booking = ({ tour, avgRating }) => {
   const { price, reviews, title, _id } = tour;
@@ -34,12 +42,12 @@ const Booking = ({ tour, avgRating }) => {
   const submittedRef = useRef(false); // guard to prevent multiple submissions
 
   useEffect(() => {
-    setBooking(prev => ({ ...prev, tourId: _id }));
+    setBooking((prev) => ({ ...prev, tourId: _id }));
   }, [_id]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setBooking(prev => ({ ...prev, [id]: value }));
+    setBooking((prev) => ({ ...prev, [id]: value }));
   };
 
   const serviceFee = 10;
@@ -66,7 +74,7 @@ const Booking = ({ tour, avgRating }) => {
           desc.includes(user._id) &&
           txnTime > thresholdRef.current
         ) {
-          submittedRef.current = true;        
+          submittedRef.current = true;
           clearInterval(pollingRef.current);
           setChecking(false);
           submitBooking();
@@ -111,9 +119,12 @@ const Booking = ({ tour, avgRating }) => {
   return (
     <div className="booking">
       <div className="booking_top d-flex align-items-center justify-content-between">
-        <h3>${price} <span>/per person</span></h3>
+        <h3>
+          ${price} <span>/per person</span>
+        </h3>
         <span className="tour_rating d-flex align-items-center">
-          <i className="ri-star-fill"></i> {avgRating > 0 && avgRating} ({reviews?.length})
+          <i className="ri-star-fill"></i> {avgRating > 0 && avgRating} (
+          {reviews?.length})
         </span>
       </div>
 
@@ -162,7 +173,8 @@ const Booking = ({ tour, avgRating }) => {
             <ListGroup>
               <ListGroupItem className="border-0 px-0">
                 <h5 className="d-flex align-items-center gap-1">
-                  ${price} <i className="ri-close-line"></i> {booking.guestSize} {booking.guestSize > 1 ? "persons" : "person"}
+                  ${price} <i className="ri-close-line"></i> {booking.guestSize}{" "}
+                  {booking.guestSize > 1 ? "persons" : "person"}
                 </h5>
                 <span>${price * booking.guestSize}</span>
               </ListGroupItem>
@@ -175,8 +187,18 @@ const Booking = ({ tour, avgRating }) => {
                 <span>${totalAmount}</span>
               </ListGroupItem>
             </ListGroup>
-            <Button type="submit" className="btn primary_btn w-100 mt-4" disabled={checking}>
-              {checking ? <><Spinner size="sm" /> Checking payment...</> : "Book Now"}
+            <Button
+              type="submit"
+              className="btn primary_btn w-100 mt-4"
+              disabled={checking}
+            >
+              {checking ? (
+                <>
+                  <Spinner size="sm" /> Checking payment...
+                </>
+              ) : (
+                "Book Now"
+              )}
             </Button>
           </div>
         </Form>
@@ -184,8 +206,12 @@ const Booking = ({ tour, avgRating }) => {
 
       {showPaymentInfo && (
         <div className="payment_info mt-4 text-center">
-          <p><strong>Nội dung chuyển khoản:</strong> {user._id}</p>
-          <p><strong>Tổng tiền (VND):</strong> {amountVND.toLocaleString()}</p>
+          <p>
+            <strong>Nội dung chuyển khoản:</strong> {user._id}
+          </p>
+          <p>
+            <strong>Tổng tiền (VND):</strong> {amountVND.toLocaleString()}
+          </p>
           <img src={qrUrl} alt="QR Payment" className="qr_code img-fluid" />
         </div>
       )}

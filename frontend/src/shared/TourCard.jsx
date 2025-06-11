@@ -5,6 +5,7 @@ import calculateAvgRating from "../utils/avgRating";
 import slugify from "slugify";
 import "./tour-card.css";
 
+//dùng để hiển thị thông tin của một tour du lịch dưới dạng thẻ (card) trên giao diện website.
 const TourCard = ({ tour }) => {
   const { _id, title, city, photo, price, featured, reviews } = tour;
   const { totalRating, avgRating } = calculateAvgRating(reviews);

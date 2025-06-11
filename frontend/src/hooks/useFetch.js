@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
+  // State lưu dữ liệu trả về từ API
   const [data, setData] = useState([]);
+  // State lưu thông báo lỗi nếu có
   const [error, setError] = useState(null);
+  // State kiểm soát trạng thái loading
   const [loading, setLoading] = useState(false);
 
+  // useEffect sẽ chạy mỗi khi URL thay đổi
   useEffect(() => {
+    // Hàm fetch dữ liệu từ API
     const fetchData = async () => {
       setLoading(true);
 
@@ -28,6 +33,7 @@ const useFetch = (url) => {
     fetchData();
   }, [url]);
 
+  // Trả về object chứa data, error, loading để component sử dụng
   return {
     data,
     error,

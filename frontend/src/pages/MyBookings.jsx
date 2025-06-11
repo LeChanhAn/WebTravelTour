@@ -6,23 +6,26 @@ import CommonSection from "../shared/CommonSection";
 import { Navigate } from "react-router-dom";
 import "../styles/my-bookings.css";
 
+// Trang "MyBookings" cho phép người dùng xem, quản lý và hủy các booking tour của chính mình
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  // Lấy danh sách booking của user khi component mount
   useEffect(() => {
     if (user) {
       fetchUserBookings();
     }
   }, [user]);
 
-  // User protection - redirect if not logged in
+  // User protection - chuyển hướng nếu chưa đăng nhập
   if (!user) {
     return <Navigate to="/login" replace />;
   }
 
+  // Hàm lấy danh sách booking của user từ backend
   const fetchUserBookings = async () => {
     try {
       setLoading(true);
@@ -44,6 +47,7 @@ const MyBookings = () => {
     }
   };
 
+  // Hàm xử lý hủy booking
   const handleCancelBooking = async (bookingId) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
       try {
@@ -57,7 +61,7 @@ const MyBookings = () => {
           throw new Error(errorData.message || "Failed to cancel booking");
         }
 
-        // Remove the cancelled booking from the state
+        // Xóa booking khỏi state sau khi hủy thành công
         setBookings(bookings.filter((booking) => booking._id !== bookingId));
         alert("Booking cancelled successfully");
       } catch (err) {
@@ -66,6 +70,7 @@ const MyBookings = () => {
     }
   };
 
+  // Hàm định dạng ngày tháng
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -74,6 +79,7 @@ const MyBookings = () => {
     });
   };
 
+  // Nếu chưa đăng nhập, hiển thị cảnh báo
   if (!user) {
     return (
       <div className="text-center mt-5">
@@ -94,6 +100,7 @@ const MyBookings = () => {
                 <p>Manage your tour reservations</p>
               </div>
 
+              {/* Hiển thị trạng thái loading */}
               {loading && (
                 <div className="text-center">
                   <Spinner color="primary" />
@@ -101,12 +108,14 @@ const MyBookings = () => {
                 </div>
               )}
 
+              {/* Hiển thị lỗi nếu có */}
               {error && (
                 <Alert color="danger">
                   <strong>Error:</strong> {error}
                 </Alert>
               )}
 
+              {/* Hiển thị khi không có booking */}
               {!loading && !error && bookings.length === 0 && (
                 <Alert color="info">
                   <strong>No bookings found.</strong> You haven't made any tour
@@ -114,6 +123,7 @@ const MyBookings = () => {
                 </Alert>
               )}
 
+              {/* Hiển thị bảng booking nếu có */}
               {!loading && !error && bookings.length > 0 && (
                 <div className="bookings-table-container">
                   <Table responsive striped hover className="bookings-table">

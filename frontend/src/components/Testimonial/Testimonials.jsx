@@ -5,6 +5,7 @@ import ava02 from "../../assets/images/ava02.jpg";
 import ava03 from "../../assets/images/ava03.jpg";
 
 const Testimonials = () => {
+  // Cấu hình cho slider react-slick
   const settings = {
     dots: true,
     infinite: true,

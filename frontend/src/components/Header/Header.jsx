@@ -21,16 +21,20 @@ const nav_links = [
     display: "Tours",
   },
 ];
+
+// Danh sách các link menu chính
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
 
+  // Hàm logout: xóa user khỏi context và chuyển về trang chủ
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
   };
+  // Hàm xử lý sticky header khi cuộn trang
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (headerRef.current) {
@@ -46,12 +50,13 @@ const Header = () => {
     });
   };
 
+  // Kích hoạt sticky header khi component mount
   useEffect(() => {
     stickyHeaderFunc();
-
     return window.removeEventListener("scroll", stickyHeaderFunc);
   });
 
+  // Hàm toggle menu mobile
   const toggleMenu = () => menuRef.current.classList.toggle("show_menu");
 
   return (
@@ -67,7 +72,7 @@ const Header = () => {
             {/* === menu === */}
             <div className="navigation" ref={menuRef} onClick={toggleMenu}>
               <ul className="menu d-flex align-items-center gap-3">
-                {/* Reduced gap from 5 to 3 */}
+                {/* Các link menu chính */}
                 {nav_links.map((item, index) => (
                   <li className="nav_item" key={index}>
                     <NavLink
@@ -80,7 +85,7 @@ const Header = () => {
                     </NavLink>
                   </li>
                 ))}{" "}
-                {/* Conditional booking links based on user role */}
+                {/*Liên kết đặt phòng có điều kiện dựa trên vai trò của người dùng*/}
                 {user && (
                   <>
                     {user.role === "admin" ? (

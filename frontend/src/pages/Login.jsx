@@ -10,6 +10,7 @@ import { AuthContext } from "../context/AuthContext";
 import { BASE_URL } from "../utils/config";
 
 const Login = () => {
+  // State lưu thông tin email và password nhập vào
   const [credentials, setCredentials] = useState({
     email: undefined,
     password: undefined,
@@ -18,16 +19,19 @@ const Login = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Hàm xử lý khi người dùng thay đổi input email/password
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+  // Hàm xử lý khi người dùng nhấn nút đăng nhập
   const handleClick = async (e) => {
     e.preventDefault();
 
     dispatch({ type: "LOGIN_START" });
-    // Add your login logic here
+    // Thêm logic đăng nhập vào đây
     try {
+      // Gửi request đăng nhập tới backend
       const res = await fetch(`${BASE_URL}/auth/login`, {
         method: "post",
         headers: {
@@ -42,9 +46,11 @@ const Login = () => {
 
       console.log(result.data);
 
+      // Lưu thông tin user vào context và chuyển hướng về trang chủ
       dispatch({ type: "LOGIN_SUCCESS", payload: result.data });
       navigate("/");
     } catch (error) {
+      //Xử lý lỗi đăng nhập
       dispatch({ type: "LOGIN_FAILURE", payload: error.message });
     }
   };
@@ -63,6 +69,7 @@ const Login = () => {
                   <img src={userIcon} alt="" />
                 </div>
                 <h2>Login</h2>
+                {/* Form đăng nhập */}
                 <Form onSubmit={handleClick}>
                   <FormGroup>
                     <input

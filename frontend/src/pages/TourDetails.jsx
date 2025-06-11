@@ -11,6 +11,8 @@ import useFetch from "../hooks/useFetch";
 import { BASE_URL } from "../utils/config";
 import { AuthContext } from "../context/AuthContext";
 
+// Trang chi tiết tour du lịch
+
 const TourDetails = () => {
   const { slug } = useParams();
 
@@ -18,10 +20,14 @@ const TourDetails = () => {
   const [tourRating, setTourRating] = useState(null);
   const { user } = useContext(AuthContext);
 
-  // fetch data from database
-  const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/slug/${slug}`);
+  // Lấy dữ liệu tour từ backend dựa trên slug
+  const {
+    data: tour,
+    loading,
+    error,
+  } = useFetch(`${BASE_URL}/tours/slug/${slug}`);
 
-  // destructure properties from tour object
+  // Destructure các thuộc tính từ object tour
   const {
     photo,
     title,
@@ -34,12 +40,12 @@ const TourDetails = () => {
     maxGroupSize,
     _id,
   } = tour;
-
+  // Tính tổng số rating và rating trung bình
   const { totalRating, avgRating } = calculateAvgRating(reviews);
   // format date
   const options = { day: "numeric", month: "long", year: "numeric" };
 
-  // submit request to the server
+  // // Hàm xử lý gửi review mới lên server
   const submitHandler = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
@@ -73,9 +79,10 @@ const TourDetails = () => {
     }
   };
 
+  // Cuộn lên đầu trang khi thay đổi slug (chuyển tour)
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[slug]);
+  }, [slug]);
   return (
     <>
       <section>
@@ -88,6 +95,7 @@ const TourDetails = () => {
             <Row>
               <Col lg="8">
                 <div className="tour_content">
+                  {/* Hiển thị thông tin tour */}
                   <img src={photo} alt="" />
                   <div className="tour_info">
                     <h2>{title}</h2>
@@ -165,6 +173,7 @@ const TourDetails = () => {
                         </button>
                       </div>
                     </Form>
+                    {/* Danh sách review */}
                     <ListGroup className="user_reviews">
                       {reviews?.map((review) => (
                         <div className="review_item">
@@ -194,6 +203,7 @@ const TourDetails = () => {
                 </div>
               </Col>
               <Col lg="4">
+                {/* Form đặt tour */}
                 <Booking tour={tour} avgRating={avgRating}></Booking>
               </Col>
             </Row>

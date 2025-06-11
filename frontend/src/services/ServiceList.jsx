@@ -6,6 +6,8 @@ import weatherImg from "../assets/images/weather.png";
 import guideImg from "../assets/images/guide.png";
 import customizationImg from "../assets/images/customization.png";
 
+// Mô tả dữ liệu dịch vụ
+
 const servicesData = [
   {
     imgUrl: weatherImg,
@@ -27,7 +29,7 @@ const ServiceList = () => {
   return (
     <>
       {servicesData.map((item, index) => (
-        <Col lg="3" md='6' sm='12' className="mb-4" key={index}>
+        <Col lg="3" md="6" sm="12" className="mb-4" key={index}>
           <ServiceCard item={item} />
         </Col>
       ))}

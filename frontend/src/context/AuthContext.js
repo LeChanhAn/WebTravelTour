@@ -10,7 +10,7 @@ const initial_state = {
 };
 
 export const AuthContext = createContext(initial_state);
-
+// Hàm reducer xử lý các action liên quan đến auth
 const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_START":
@@ -47,10 +47,11 @@ const AuthReducer = (state, action) => {
       return state;
   }
 };
-
+// Provider bọc toàn bộ app, cung cấp state và dispatch cho các component con
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, initial_state);
 
+  // Lưu user vào localStorage mỗi khi user thay đổi
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);

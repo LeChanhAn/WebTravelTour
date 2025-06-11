@@ -10,7 +10,7 @@ import SearchResultList from "../pages/SearchResultList";
 import ThankYou from "../pages/ThankYou";
 import MyBookings from "../pages/MyBookings";
 import AdminBookings from "../pages/AdminBookings";
-
+// Phần Router này sẽ định nghĩa các route cho ứng dụng
 const Routers = () => {
   return (
     <Routes>

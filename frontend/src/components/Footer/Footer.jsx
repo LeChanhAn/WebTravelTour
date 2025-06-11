@@ -4,6 +4,9 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 
+// Trang này hiển thị chân trang của ứng dụng
+// - Bao gồm thông tin liên hệ, các liên kết nhanh và mạng xã hội
+
 const quick_links = [
   {
     path: "/home",

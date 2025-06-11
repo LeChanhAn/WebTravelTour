@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../styles/thank-you.css";
+// Trang cảm ơn (Thank You)
+// - Hiển thị sau khi người dùng đặt tour thành công
+// - Thông báo đặt tour thành công và cung cấp nút quay về trang chủ
 
 const ThankYou = () => {
   return (

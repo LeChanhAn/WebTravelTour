@@ -1,6 +1,6 @@
 import React from "react";
 import "./service-card.css";
-
+//hiển thị hình ảnh, tiêu đề và mô tả của dịch vụ
 const ServiceCard = ({ item }) => {
   const { imgUrl, title, desc } = item;
   return (

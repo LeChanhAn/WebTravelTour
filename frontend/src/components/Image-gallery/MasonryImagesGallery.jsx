@@ -1,6 +1,10 @@
 import React from "react";
 import galleryImages from "./galleryImages";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+// Component MasonryImagesGallery
+// - Hiển thị bộ sưu tập ảnh dạng lưới Masonry (masonry gallery)
+// - Sử dụng thư viện react-responsive-masonry để tự động chia cột theo kích thước màn hình
+// - Lấy danh sách ảnh từ file galleryImages.js và render từng ảnh với style bo góc
 
 const MasonryImagesGallery = () => {
   return (

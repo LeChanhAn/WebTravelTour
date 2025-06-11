@@ -4,6 +4,7 @@ import "./newsletter.css";
 import { Container, Row, Col } from "reactstrap";
 import maleTourist from "../assets/images/male-tourist.png";
 
+//phần đăng ký mail để nhận thông tin
 const Newsletter = () => {
   return (
     <section>
