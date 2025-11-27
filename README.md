@@ -12,10 +12,20 @@ Travel Explorer is a complete web application designed for travel enthusiasts wh
 
 # Tech Stack
 JavaScript
+
 React.js
+
 Node.js
+
 Express.js
+
 HTML5 / CSS
+
 MongoDB Atlas
+
 Postman
+
 Render
+
+# Report
+[Document.pdf](https://github.com/user-attachments/files/23783702/Document.pdf)
